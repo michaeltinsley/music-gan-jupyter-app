@@ -1,6 +1,5 @@
 import streamlit as st
-
-from utils import gpu, options
+from utils import options
 
 title = st.sidebar.title(
     body="Music StyleGAN App",
