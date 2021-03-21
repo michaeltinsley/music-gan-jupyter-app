@@ -250,13 +250,13 @@ if __name__ == "__main__":
             config=config,
         )
 
-        with st.sidebar.spinner("Downloading Song..."):
+        with st.spinner("Downloading Song..."):
             dream_object.download()
 
-        with st.sidebar.spinner("Downloading model weights..."):
+        with st.spinner("Downloading model weights..."):
             dream_object.download_weights()
 
-        with st.sidebar.spinner("Generating video..."):
+        with st.spinner("Generating video..."):
             dream_object.generate()
 
         # Output
