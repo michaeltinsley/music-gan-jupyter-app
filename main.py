@@ -251,7 +251,7 @@ if __name__ == "__main__":
         )
 
         with st.spinner("Downloading Song..."):
-            dream_object.download()
+            dream_object.download_music()
 
         with st.spinner("Downloading model weights..."):
             dream_object.download_weights()
@@ -267,4 +267,5 @@ if __name__ == "__main__":
         )
 
         if download:
-            dream_object.download()
+            with st.spinner("Downloading video..."):
+                dream_object.download()
