@@ -1,3 +1,7 @@
+"""
+Sonic dreams wrapper helpers.
+"""
+
 import uuid
 from dataclasses import dataclass
 from typing import Optional
@@ -39,16 +43,22 @@ class LucidDreamConfig:
 
 class LucidDreamWrapper:
     def __init__(self, config: LucidDreamConfig) -> None:
-        """"""
+        """
+        Lucid Sonic dreamer wrapper class
+
+        :param config: A LucidDreamConfig object
+        """
         self.config = config
-        self.id = str(uuid.uuid4())
-        self.video_name = f"{self.id}.mp4"
+        self.file_id = str(uuid.uuid4())
+        self.video_name = f"{self.file_id}.mp4"
+        self.lucid_dream = None
+        self.audio_track = None
 
     def download_music(self) -> None:
         """
         Downloads the given track and saves the filepath.
         """
-        saved_file = download_youtube_mp3(self.config.url, self.id)
+        saved_file = download_youtube_mp3(self.config.url, self.file_id)
         self.audio_track = saved_file
 
     def download_weights(self) -> None:
