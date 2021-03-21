@@ -1,3 +1,6 @@
+"""
+Streamlit app.
+"""
 import streamlit as st
 from utils import gpu, options
 
