@@ -1,6 +1,6 @@
 import streamlit as st
-from utils import options, gpu
 
+from utils import gpu, options
 
 title = st.sidebar.title(
     body="Music StyleGAN App",
@@ -10,7 +10,7 @@ st.sidebar.markdown(
     body="A Colab hosted StyleGAN app for creating music videos",
 )
 
-## YouTube download
+# YouTube download
 
 st.sidebar.subheader(
     "Video Selection",
@@ -24,7 +24,8 @@ run = st.sidebar.button(
     label="Run",
 )
 
-## Output
+# Output
+
 st.sidebar.markdown(body="---")
 st.sidebar.subheader(
     "Download",
@@ -38,7 +39,7 @@ st.title(
     body="Configuration",
 )
 
-## GPU Info
+# GPU Info
 
 st.subheader(
     body="GPU Model",
@@ -49,7 +50,7 @@ st.text(
 )
 
 
-## Music GAN options
+# Music GAN options
 
 st.subheader(
     "Style GAN Configuration",
@@ -66,7 +67,7 @@ style_dropdown = st.selectbox(
 )
 
 
-### Video Parameters
+# Video Parameters
 
 video_parameters_expander = st.beta_expander(
     label="Video Parameters",
@@ -108,7 +109,7 @@ with video_parameters_expander:
         value=False,
     )
 
-### Pulse Parameters
+# Pulse Parameters
 
 pulse_parameters_expander = st.beta_expander(
     label="Pulse parameters",
@@ -132,7 +133,7 @@ with pulse_parameters_expander:
     )
 
 
-### Motion Parameters
+# Motion Parameters
 
 motion_parameters_expander = st.beta_expander(
     label="Motion parameters",
@@ -157,7 +158,7 @@ with motion_parameters_expander:
     )
 
 
-### Class Parameters
+# Class Parameters
 
 class_parameters_expander = st.beta_expander(
     label="Class Parameters",
@@ -171,27 +172,33 @@ with class_parameters_expander:
     )
 
     class_smooth_seconds = st.number_input(
-        label="Number of seconds spent smoothly interpolating between each class vector. The higher the value, the less 'sudden' the change of class.",
+        label="Number of seconds spent smoothly interpolating between each "
+              "class vector. The higher the value, the less 'sudden' the "
+              "change of class.",
         min_value=1,
         value=1,
         step=1,
     )
 
     class_complexity = st.slider(
-        label="Controls the 'complexity' of images generated. Lower values tend to generate more simple and mundane images, while higher values tend to generate more intricate and bizzare objects.",
+        label="Controls the 'complexity' of images generated. Lower values "
+              "tend to generate more simple and mundane images, while higher "
+              "values tend to generate more intricate and bizzare objects.",
         min_value=0.0,
         max_value=1.0,
         value=1.0,
     )
 
     class_shuffle_seconds = st.number_input(
-        label="Number of seconds spent smoothly interpolating between each class vector. The higher the value, the less 'sudden' the change of class.",
+        label="Number of seconds spent smoothly interpolating between each "
+              "class vector. The higher the value, the less 'sudden' the "
+              "change of class.",
         min_value=1,
         value=15,
         step=1,
     )
 
-### Effects Parameters
+# Effects Parameters
 
 effects_parameters_expander = st.beta_expander(
     label="Effects Parameters",
