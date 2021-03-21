@@ -9,7 +9,9 @@ from pytube import YouTube
 
 
 def download_youtube_mp3(
-    url: str, unique_id: str, save_path: Optional[str] = "./tmp/",
+    url: str,
+    unique_id: str,
+    save_path: Optional[str] = "./tmp/",
 ) -> str:
     """
     Downloads a given YouTube video to MP3.

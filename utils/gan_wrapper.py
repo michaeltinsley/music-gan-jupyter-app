@@ -17,6 +17,7 @@ class LucidDreamConfig:
     """
     Lucid Dream configuration class.
     """
+
     url: str
     style: str
     resolution: int
@@ -48,6 +49,7 @@ class LucidDreamWrapper:
     """
     Lucid Sonic dreamer wrapper class
     """
+
     def __init__(self, config: LucidDreamConfig) -> None:
         """
         :param config: A LucidDreamConfig object
