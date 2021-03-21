@@ -2,7 +2,7 @@
 Streamlit app.
 """
 import streamlit as st
-from utils import gpu, options
+from utils import gan_wrapper, gpu, options
 
 title = st.sidebar.title(
     body="Music StyleGAN App",
@@ -24,16 +24,6 @@ video_url = st.sidebar.text_input(
 
 run = st.sidebar.button(
     label="Run",
-)
-
-# Output
-
-st.sidebar.markdown(body="---")
-st.sidebar.subheader(
-    "Download",
-)
-download = st.sidebar.button(
-    label="Download video",
 )
 
 
@@ -229,3 +219,52 @@ with effects_parameters_expander:
         label="If enabled, flash reacts to the audio's percussive elements.",
         value=True,
     )
+
+
+if __name__ == "__main__":
+    if run:
+        config = gan_wrapper.LucidDreamConfig(
+            url=video_url,
+            style=style_dropdown,
+            resolution=resolution,
+            speed_fpm=speed_fpm,
+            start_time=start_time,
+            pulse_react=pulse_react,
+            pulse_percussive=pulse_percussive,
+            pulse_harmonic=pulse_harmonic,
+            motion_react=motion_react,
+            motion_percussive=motion_percussive,
+            motion_harmonic=motion_harmonic,
+            class_pitch_react=class_pitch_react,
+            class_smooth_seconds=class_smooth_seconds,
+            class_complexity=class_complexity,
+            class_shuffle_seconds=class_shuffle_seconds,
+            contrast_strength=contrast_strength,
+            contrast_percussive=contrast_percussive,
+            flash_strength=flash_strength,
+            flash_percussive=flash_percussive,
+            length=None if entire_video else length,
+        )
+
+        dream_object = gan_wrapper.LucidDreamWrapper(
+            config=config,
+        )
+
+        with st.sidebar.spinner("Downloading Song..."):
+            dream_object.download()
+
+        with st.sidebar.spinner("Downloading model weights..."):
+            dream_object.download_weights()
+
+        with st.sidebar.spinner("Generating video..."):
+            dream_object.generate()
+
+        # Output
+
+        st.sidebar.markdown(body="---")
+        download = st.sidebar.button(
+            label="Download video",
+        )
+
+        if download:
+            dream_object.download()
