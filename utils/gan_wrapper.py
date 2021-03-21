@@ -14,6 +14,9 @@ from .music_download import download_youtube_mp3
 
 @dataclass
 class LucidDreamConfig:
+    """
+    Lucid Dream configuration class.
+    """
     url: str
     style: str
     resolution: int
@@ -42,10 +45,11 @@ class LucidDreamConfig:
 
 
 class LucidDreamWrapper:
+    """
+    Lucid Sonic dreamer wrapper class
+    """
     def __init__(self, config: LucidDreamConfig) -> None:
         """
-        Lucid Sonic dreamer wrapper class
-
         :param config: A LucidDreamConfig object
         """
         self.config = config

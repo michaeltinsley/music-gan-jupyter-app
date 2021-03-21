@@ -8,7 +8,9 @@ import moviepy.editor as mp
 from pytube import YouTube
 
 
-def download_youtube_mp3(url: str, unique_id: str, save_path: Optional[str] = "./tmp/") -> str:
+def download_youtube_mp3(
+    url: str, unique_id: str, save_path: Optional[str] = "./tmp/",
+) -> str:
     """
     Downloads a given YouTube video to MP3.
 
