@@ -1,3 +1,7 @@
+"""
+GPU info helper methods.
+"""
+
 from tensorflow.python.client import device_lib
 
 
