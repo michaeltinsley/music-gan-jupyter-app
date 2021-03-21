@@ -1,3 +1,8 @@
+"""
+Options for Streamlit widgets.
+"""
+
+
 style_gan_choices = [
     "faces (ffhq slim 256x256)",
     "lsun cats",
