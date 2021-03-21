@@ -173,8 +173,8 @@ with class_parameters_expander:
 
     class_smooth_seconds = st.number_input(
         label="Number of seconds spent smoothly interpolating between each "
-              "class vector. The higher the value, the less 'sudden' the "
-              "change of class.",
+        "class vector. The higher the value, the less 'sudden' the "
+        "change of class.",
         min_value=1,
         value=1,
         step=1,
@@ -182,8 +182,8 @@ with class_parameters_expander:
 
     class_complexity = st.slider(
         label="Controls the 'complexity' of images generated. Lower values "
-              "tend to generate more simple and mundane images, while higher "
-              "values tend to generate more intricate and bizzare objects.",
+        "tend to generate more simple and mundane images, while higher "
+        "values tend to generate more intricate and bizzare objects.",
         min_value=0.0,
         max_value=1.0,
         value=1.0,
@@ -191,8 +191,8 @@ with class_parameters_expander:
 
     class_shuffle_seconds = st.number_input(
         label="Number of seconds spent smoothly interpolating between each "
-              "class vector. The higher the value, the less 'sudden' the "
-              "change of class.",
+        "class vector. The higher the value, the less 'sudden' the "
+        "change of class.",
         min_value=1,
         value=15,
         step=1,
