@@ -25,7 +25,7 @@ def download_youtube_mp3(
     video = video.streams.filter(only_audio=True).first()
     video.download(output_path=save_path, filename=unique_id)
     video_path = f"{save_path}{unique_id}.mp4"
-    clip = mp.AudioFileClip()
+    clip = mp.AudioFileClip(video_path)
     audio_path = f"{save_path}{unique_id}.mp3"
     clip.write_audiofile(f"{save_path}{unique_id}.mp3")
     os.remove(video_path)
